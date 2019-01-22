@@ -27,6 +27,9 @@
                             <th>Camera</th>
                             <th>Color</th>
                             <th>Battery</th>
+                            <th>Size</th>
+                            <th>Sound</th>
+                            <th>Dual SIM</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -83,6 +86,9 @@
                             <th>Camera</th>
                             <th>Color</th>
                             <th>Battery</th>
+                            <th>Size</th>
+                            <th>Sound</th>
+                            <th>Dual SIM</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>

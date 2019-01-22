@@ -34,6 +34,14 @@ class CreateHpTable extends Migration
             $table->unsignedInteger('id_battery')->nullable();
             $table->foreign('id_battery')->references('id')->on('battery');
 
+            $table->unsignedInteger('id_size')->nullable();
+            $table->foreign('id_size')->references('id')->on('sizes');
+
+            $table->unsignedInteger('id_sound')->nullable();
+            $table->foreign('id_sound')->references('id')->on('sounds');
+
+            $table->unsignedInteger('id_dualsim')->nullable();
+            $table->foreign('id_dualsim')->references('id')->on('dual_sims');
             $table->timestamps();
         });
     }

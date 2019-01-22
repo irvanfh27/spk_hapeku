@@ -24,7 +24,7 @@
                                 placeholder="Contoh : Samsul">
                             </div>
                             @if ($errors->has('name'))
-                                <span>{{ $errors->get('name') }}</span>
+                            <span>{{ $errors->get('name') }}</span>
                             @endif
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                                 placeholder="Contoh : 10000">
                             </div>
                             @if ($errors->has('harga'))
-                                <span>{{ $errors->get('harga') }}</span>
+                            <span>{{ $errors->get('harga') }}</span>
                             @endif
                         </div>
                     </div>
@@ -105,6 +105,51 @@
                                     <option selected value="0">Pilih...</option>
                                     @foreach ($ram as $item)
                                     <option value="{{ $item->id }}">{{ $item->size }} GB</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Pilih Sound</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="sound">
+                                    <option selected value="0">Pilih...</option>
+                                    @foreach ($sound as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }} </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Dual Sim</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="dualsim">
+                                    <option selected value="0">Pilih...</option>
+                                    @foreach ($dualsim as $item)
+                                    <option value="{{ $item->id }}">{{ $item->dualsim }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Pilih Size</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="size">
+                                    <option selected value="0">Pilih...</option>
+                                    @foreach ($size as $item)
+                                    <option value="{{ $item->id }}">{{ $item->size }}</option>
                                     @endforeach
                                 </select>
                             </div>

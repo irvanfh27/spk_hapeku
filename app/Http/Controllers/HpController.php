@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Hp;
 use App\Ram;
+use App\Size;
 use App\Color;
+use App\Sound;
 use App\Camera;
 use App\Battery;
+use App\DualSim;
 use App\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage as StorageFile;
@@ -38,8 +41,13 @@ class HpController extends Controller
         $color = Color::all();
         $ram = Ram::all();
         $storage = Storage::all();
+        $sound = Sound::all();
+        $size = Size::all();
+        $dualsim = DualSim::all();
 
-        return view('backend.create_hp', compact('battery', 'camera', 'color', 'ram', 'storage'));
+        return view('backend.create_hp', compact(
+            'battery', 'camera', 'color', 'ram', 'storage', 'sound', 'dualsim', 'size'
+        ));
     }
 
     /**
@@ -68,6 +76,9 @@ class HpController extends Controller
         $hp->id_color = $request->color;
         $hp->id_ram = $request->ram;
         $hp->id_storage = $request->storage;
+        $hp->id_sound = $request->sound;
+        $hp->id_size = $request->size;
+        $hp->id_dualsim = $request->dualsim;
         $hp->save();
 
         // return $request->all();
