@@ -9,12 +9,12 @@ class DualsimSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('dualsims')->insert([
+        DB::table('dual_sims')->insert([
             'dualsim' => 'yes',
             'score' => 1,
         ]);
 
-        DB::table('dualsims')->insert([
+        DB::table('dual_sims')->insert([
             'dualsim' => 'no',
             'score' => 0.5,
         ]);

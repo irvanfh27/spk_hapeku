@@ -13,7 +13,7 @@ class CreateSoundsTable extends Migration
     {
         Schema::create('sounds', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('name');
+            $table->string('name');
             $table->float('score')->nullable();
             $table->timestamps();
         });
