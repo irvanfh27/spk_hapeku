@@ -72,7 +72,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="3" style="text-align: center"><b><h3>Data Masih Kosong</h3></b></td>
+                            <td colspan="13" style="text-align: center"><b><h3>Data Masih Kosong</h3></b></td>
                         </tr>
                         @endforelse
                     </tbody>
@@ -80,6 +80,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Merk HP</th>
+                            <th>Harga</th>
                             <th>Gambar</th>
                             <th>Ram</th>
                             <th>Storage</th>
