@@ -53,6 +53,9 @@
                             <td>{{ $item->camera->size }} MP</td>
                             <td>{{ $item->color->name }}</td>
                             <td>{{ $item->battery->size }} mAh</td>
+                            <td> {{ $item->size->size }} inch</td>
+                            <td>{{ $item->sound->name }}</td>
+                            <td>{{ $item->dualsim->dualsim }}</td>
 
                             <td class="text-left">
                                 <div class="dropdown">

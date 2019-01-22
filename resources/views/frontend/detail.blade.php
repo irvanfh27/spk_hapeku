@@ -67,7 +67,10 @@
                     <b>Storage :</b> {{ $hp->storage->size }} GB <br>
                     <b>Camera :</b> {{ $hp->camera->size }} MP <br>
                     <b>Battery :</b> {{ $hp->battery->size }} mAh <br>
-                    <b>Color : </b> {{ $hp->color->name }}
+                    <b>Color : </b> {{ $hp->color->name }} <br>
+                    <b>Sound : </b> {{ $hp->sound->name }} <br>
+                    <b>Size : </b>  {{ $hp->size->size }} <br>
+                    <b>Dual Sim : </b> {{ $hp->dualsim->dualsim }}
 
                 </div>
                 <!-- Add to Cart Form -->

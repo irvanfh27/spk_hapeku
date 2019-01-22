@@ -15,7 +15,7 @@ class CreateHpTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->binary('gambar')->nullable();
-            $table->float('harga')->nullable();
+            $table->float('harga', 200)->nullable();
             $table->unsignedInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('users');
 
