@@ -13,7 +13,7 @@ class CreateSizesTable extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('size');
+            $table->float('size');
             $table->float('score')->nullable();
             $table->timestamps();
         });
