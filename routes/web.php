@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
-Route::get('/specification', function () {
-    return view('frontend.spec');
-});
+Route::get('/specification', 'FrontendController@spec')->name('front.spec');
+Route::post('/specification', 'FrontendController@spec')->name('post.spec');
+
+Route::get('/detail/{hp}', 'FrontendController@showDetail')->name('detail.hp');
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/', function () {
@@ -27,10 +28,6 @@ Route::group(['middleware' => ['auth']], function () {
         });
         Route::resource('data_hp', 'HpController');
     });
-});
-
-Route::get('/detail', function () {
-    return view('frontend.detail');
 });
 
 Auth::routes();

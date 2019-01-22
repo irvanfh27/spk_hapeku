@@ -9,6 +9,7 @@ use App\Camera;
 use App\Battery;
 use App\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage as StorageFile;
 
 class HpController extends Controller
 {
@@ -50,16 +51,24 @@ class HpController extends Controller
      */
     public function store(Request $request)
     {
-        $hp = Hp::create(
-            [
-                'name' => $request->name,
-                'id_user' => auth()->user()->id,
-                'id_battery' => $request->battery,
-                'id_camera' => $request->camera,
-                'id_color' => $request->color,
-                'id_ram' => $request->ram,
-                'id_storage' => $request->storage,
-            ]);
+        if ($request->hasfile('gambar')) {
+            foreach ($request->file('gambar') as $file) {
+                $name = $file->getClientOriginalName();
+                $file->move(public_path().'/files/', $name);
+                $data[] = $name;
+            }
+        }
+        $hp = new Hp();
+        $hp->name = $request->name;
+        $hp->gambar = json_encode($data);
+        $hp->harga = $request->harga;
+        $hp->id_user = auth()->user()->id;
+        $hp->id_battery = $request->battery;
+        $hp->id_camera = $request->camera;
+        $hp->id_color = $request->color;
+        $hp->id_ram = $request->ram;
+        $hp->id_storage = $request->storage;
+        $hp->save();
 
         // return $request->all();
         return redirect()->route('data_hp.index');
@@ -109,6 +118,9 @@ class HpController extends Controller
     public function destroy($id)
     {
         $hp = Hp::findOrFail($id);
+        foreach (json_decode($hp->gambar) as $key => $value) {
+            StorageFile::delete(asset('/files/'.$value));
+        }
         $hp->delete();
 
         return redirect()->back();

@@ -14,6 +14,7 @@ class CreateHpTable extends Migration
         Schema::create('hp', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->binary('gambar')->nullable();
             $table->float('harga')->nullable();
             $table->unsignedInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('users');

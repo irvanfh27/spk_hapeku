@@ -5,7 +5,7 @@
         <div class="card-header bg-white border-0">
             <div class="row align-items-center">
                 <div class="col-8">
-                    <h3 class="mb-0">Tambah HP</h3>
+                    <h3 class="mb-0">Edit HP</h3>
                 </div>
                 {{-- <div class="col-4 text-right">
                     <a href="#!" class="btn btn-sm btn-primary">Settings</a>
@@ -13,7 +13,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('data_hp.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('data_hp.update') }}" method="POST">
+                @method('PATCH')
                 @csrf
                 <div class="pl-lg-4">
                     <div class="row">
@@ -22,31 +23,6 @@
                                 <label class="form-control-label" for="input-username">Merk HP</label>
                                 <input type="text" id="input-username" name="name" class="form-control form-control-alternative"
                                 placeholder="Contoh : Samsul">
-                            </div>
-                            @if ($errors->has('name'))
-                                <span>{{ $errors->get('name') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-username">Harga HP</label>
-                                <input type="text" id="input-username" name="harga" class="form-control form-control-alternative"
-                                placeholder="Contoh : 10000">
-                            </div>
-                            @if ($errors->has('harga'))
-                                <span>{{ $errors->get('harga') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="fotohp" name="gambar[]" multiple>
-                                    <label class="custom-file-label" for="fotohp">Choose file</label>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -136,16 +112,4 @@
             </div>
         </div>
     </div>
-
     @endsection
-
-    @push('js')
-    <script>
-        $('#fotohp').on('change',function(){
-            //get the file name
-            var fileName = $(this).val();
-            //replace the "Choose a file" label
-            $(this).next('.custom-file-label').html(fileName);
-        })
-    </script>
-    @endpush
