@@ -10,14 +10,16 @@
         <div class="view-product">
             <p>Merk</p>
             <select class="" id="viewProduct" name="merk">
+                    <option selected value="null">Choose...</option>
                     <option value="LG">LG</option>
                     <option value="Samsung">Samsung</option>
                     <option value="Oppo">Oppo</option>
                     <option value="Vivo">Vivo</option>
                     <option value="OnePlus">OnePlus</option>
                     <option value="Xiaomi">Xiaomi</option>
+                    <option value="Sony">Sony</option>
+                    <option value="Asus">Asus</option>
             </select>
-
         </div>
     </div>
     <br>

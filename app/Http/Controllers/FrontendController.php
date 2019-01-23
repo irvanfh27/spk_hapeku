@@ -10,7 +10,11 @@ class FrontendController extends Controller
     public function spec(Request $request)
     {
         if ($request->search) {
-            $data = Hp::where('merk', $request->merk)->inRandomOrder()->take(3)->get();
+            if ($request->merk == 'null') {
+                $data = Hp::inRandomOrder()->take(3)->get();
+            } else {
+                $data = Hp::where('merk', $request->merk)->inRandomOrder()->take(3)->get();
+            }
         } else {
             $data = Hp::all();
         }
