@@ -20,7 +20,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Merk HP</th>
-                            <th>Harga</th>
+                            <th>Merk</th>
                             <th>Gambar</th>
                             <th>Ram</th>
                             <th>Storage</th>
@@ -42,7 +42,7 @@
                             <td>
                                 {{ $item->name }}
                             </td>
-                            <td>{{ $item->harga }}</td>
+                            <td>{{ $item->merk }}</td>
                             <td>
                                 @foreach (json_decode($item->gambar) as $key => $value)
                                 <img src="{{ asset('/files/'.$value)}}" height="50%" width="">
@@ -83,7 +83,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Merk HP</th>
-                            <th>Harga</th>
+                            <th>Merk</th>
                             <th>Gambar</th>
                             <th>Ram</th>
                             <th>Storage</th>

@@ -4,45 +4,46 @@
 <div class="shop_sidebar_area">
 
     <!-- ##### Single Widget ##### -->
+    <form action="{{ route('post.spec') }}" method="POST">
+    @csrf
     <div class="product-sorting d-flex">
         <div class="view-product">
             <p>Merk</p>
-            <form action="#" method="get">
-                <select class="" name="select" id="viewProduct">
-                    <option value="value">samsung</option>
-                    <option value="value">F1+</option>
-                    <option value="value">Oppo</option>
-                    <option value="value">Xiaomi</option>
-                </select>
-            </form>
+            <select class="" id="viewProduct" name="merk">
+                    <option value="LG">LG</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Oppo">Oppo</option>
+                    <option value="Vivo">Vivo</option>
+                    <option value="OnePlus">OnePlus</option>
+                    <option value="Xiaomi">Xiaomi</option>
+            </select>
+
         </div>
     </div>
     <br>
-    <form action="{{ route('post.spec', ['search' => 'all']) }}" method="POST">
-        @csrf
-        <div id="dynamic">
-            <div class="row">
-                <div class="input-group mb-3">
-                    <select class="custom-select" id="inputGroupSelect02" name="spec[]">
-                        <option selected>Choose...</option>
-                        <option value="ram">Ram</option>
-                        <option value="storage">Storage</option>
-                        <option value="camera">Camera</option>
-                        <option value="battery">Battery</option>
-                        <option value="color">Color</option>
-                        <option value="sound">Sound</option>
-                        <option value="dualcam">Dual Camera</option>
-                        <option value="display">Layar</option>
-                    </select>
-                    <div class="input-group-append" style="padding: 8px;">
-                        <a style="" href="javascript:void(0);" class="add_button" title="Add field"><i class="fa fa-plus-square-o" style="font-size: 25px"></i></a>
-                    </div>
+    <div id="dynamic">
+        <div class="row">
+            <div class="input-group mb-3">
+                <select class="custom-select" id="inputGroupSelect02" name="spec[]">
+                    <option selected>Choose...</option>
+                    <option value="ram">Ram</option>
+                    <option value="storage">Storage</option>
+                    <option value="camera">Camera</option>
+                    <option value="battery">Battery</option>
+                    <option value="color">Color</option>
+                    <option value="sound">Sound</option>
+                    <option value="dualcam">Dual Camera</option>
+                    <option value="display">Layar</option>
+                </select>
+                <div class="input-group-append" style="padding: 8px;">
+                    <a style="" href="javascript:void(0);" class="add_button" title="Add field"><i class="fa fa-plus-square-o" style="font-size: 25px"></i></a>
                 </div>
             </div>
         </div>
-        <br>
-        <button type="submit" class="btn amado-btn mb-10" style="marigtop:50%">Search</button>
-    </form>
+    </div>
+    <br>
+    <button type="submit" class="btn amado-btn mb-10" style="marigtop:50%">Search</button>
+</form>
 </div>
 
 <div class="amado_product_area section-padding-100">
@@ -90,51 +91,56 @@
         <div class="row">
 
             <!-- Single Product Area -->
-            @foreach ($data as $item)
+            @forelse ($data as $item)
             <div class="col-12 col-sm-6 col-md-12 col-xl-6">
-                <div class="single-product-wrapper">
-                    <!-- Product Image -->
-                    <div class="product-img">
-                        @php
-                        $i=0;
-                        @endphp
-                        @foreach (json_decode($item->gambar) as $gg => $value)
-                       <a href="{{ route('detail.hp', ['id' => $item->id]) }}"> <img src="{{ asset('/files/'.$value)}}" height="30%" width="30%"></a>
-                        @php
-                        break;
-                        @endphp
-                        @endforeach
-                        <!-- Hover Thumb -->
-                        {{-- <img class="hover-img" src="img/product-img/product2.jpg" alt=""> --}}
-                    </div>
-
-                    <!-- Product Description -->
-                    <div class="product-description d-flex align-items-center justify-content-between">
-                        <!-- Product Meta Data -->
-                        <div class="product-meta-data">
-                            <div class="line"></div>
-                            <p class="product-price">Rp {{ $item->harga }}</p>
-                            <a href="{{ route('detail.hp', ['id' => $item->id]) }}">
-                                <h6>{{ $item->name }}</h6>
-                            </a>
+                    <div class="single-product-wrapper">
+                        <!-- Product Image -->
+                        <div class="product-img">
+                            @php
+                            $i=0;
+                            @endphp
+                            @foreach (json_decode($item->gambar) as $gg => $value)
+                            <a href="{{ route('detail.hp', ['id' => $item->id]) }}"> <img src="{{ asset('/files/'.$value)}}" height="30%" width="30%"></a>
+                            @php
+                            break;
+                            @endphp
+                            @endforeach
+                            <!-- Hover Thumb -->
+                            {{-- <img class="hover-img" src="img/product-img/product2.jpg" alt=""> --}}
                         </div>
-                        <!-- Ratings & Cart -->
-                        <div class="ratings-cart text-right">
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+
+                        <!-- Product Description -->
+                        <div class="product-description d-flex align-items-center justify-content-between">
+                            <!-- Product Meta Data -->
+                            <div class="product-meta-data">
+                                <div class="line"></div>
+                                <a href="{{ route('detail.hp', ['id' => $item->id]) }}">
+                                        <p class="product-price"> {{ $item->name }}</p>
+                                </a>
                             </div>
-                            <div class="cart">
-                                <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+                            <!-- Ratings & Cart -->
+                            <div class="ratings-cart text-right">
+                                <div class="ratings">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="cart">
+                                    <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            @empty
+            <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+                    <div class="single-product-wrapper">
+                        <h2><b>Product Tidak Di Temukan</b></h2>
+                    </div>
             </div>
-            @endforeach
+            @endforelse
             <!-- End Product Area -->
         </div>
 

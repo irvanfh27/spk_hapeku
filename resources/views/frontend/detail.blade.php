@@ -41,10 +41,7 @@
                 <!-- Product Meta Data -->
                 <div class="product-meta-data">
                     <div class="line"></div>
-                    <p class="product-price">Rp {{ $hp->harga }}</p>
-                    <a href="product-details.html">
-                        <h6>{{ $hp->name }}</h6>
-                    </a>
+                    <p class="product-price"> {{ $hp->name }} </p>
                     <!-- Ratings & Review -->
                     <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
                         <div class="ratings">

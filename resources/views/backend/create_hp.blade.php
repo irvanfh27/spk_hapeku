@@ -29,17 +29,23 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-username">Harga HP</label>
-                                <input type="text" id="input-username" name="harga" class="form-control form-control-alternative"
-                                placeholder="Contoh : 10000">
+                            <div class="col-lg-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Pilih Merk</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01" name="merk">
+                                        <option selected value="0">Pilih...</option>
+                                        <option value="LG">LG</option>
+                                        <option value="Samsung">Samsung</option>
+                                        <option value="Oppo">Oppo</option>
+                                        <option value="Vivo">Vivo</option>
+                                        <option value="OnePlus">OnePlus</option>
+                                        <option value="Xiaomi">Xiaomi</option>
+                                    </select>
+                                </div>
                             </div>
-                            @if ($errors->has('harga'))
-                            <span>{{ $errors->get('harga') }}</span>
-                            @endif
                         </div>
-                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">

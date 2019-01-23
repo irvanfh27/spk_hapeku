@@ -1,5 +1,6 @@
 <?php
 
+use App\Hp;
 use Illuminate\Http\Request;
 
 /*
@@ -13,18 +14,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
+// Route::get('/', function () {
+//     return view('frontend.home');
+// });
+Route::get('/', 'FrontendController@spec')->name('frontend');
 
 Route::get('/specification', 'FrontendController@spec')->name('front.spec');
-Route::post('/specification', 'FrontendController@spec')->name('post.spec');
+Route::post('/specification', 'FrontendController@getByMerk')->name('post.spec');
 
 Route::get('/detail/{hp}', 'FrontendController@showDetail')->name('detail.hp');
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/', function () {
-            return view('backend.dashboard');
+            $count = Hp::all()->count();
+
+            return view('backend.dashboard', compact('count'));
         });
         Route::resource('data_hp', 'HpController');
     });

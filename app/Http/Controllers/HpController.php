@@ -44,9 +44,10 @@ class HpController extends Controller
         $sound = Sound::all();
         $size = Size::all();
         $dualsim = DualSim::all();
+        $merk = Hp::all();
 
         return view('backend.create_hp', compact(
-            'battery', 'camera', 'color', 'ram', 'storage', 'sound', 'dualsim', 'size'
+           'merk', 'battery', 'camera', 'color', 'ram', 'storage', 'sound', 'dualsim', 'size'
         ));
     }
 
@@ -70,6 +71,7 @@ class HpController extends Controller
         $hp->name = $request->name;
         $hp->gambar = json_encode($data);
         $hp->harga = $request->harga;
+        $hp->merk = $request->merk;
         $hp->id_user = auth()->user()->id;
         $hp->id_battery = $request->battery;
         $hp->id_camera = $request->camera;

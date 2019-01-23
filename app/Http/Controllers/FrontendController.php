@@ -10,7 +10,7 @@ class FrontendController extends Controller
     public function spec(Request $request)
     {
         if ($request->search) {
-            $data = Hp::inRandomOrder()->take(1)->get();
+            $data = Hp::where('merk', $request->merk)->inRandomOrder()->take(3)->get();
         } else {
             $data = Hp::all();
         }
@@ -21,5 +21,10 @@ class FrontendController extends Controller
     public function showDetail(Hp $hp)
     {
         return view('frontend.detail', compact('hp'));
+    }
+
+    public function getByMerk(Request $request)
+    {
+        return redirect()->route('front.spec', ['search' => 'yes', 'merk' => $request->merk]);
     }
 }
