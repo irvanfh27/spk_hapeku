@@ -48,7 +48,7 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a href="index.html"><img src="{{ asset('frontend/hapeku/') }}/img/core-img/logo.png" alt=""></a>
+                <a href="index.html"><img src="{{ asset('frontend/hapeku/') }}/img/core-img/hapeku.jpeg" alt=""></a>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -64,7 +64,7 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="{{ route('frontend') }}"><img src="{{ asset('frontend/hapeku/') }}/img/core-img/logo.png" alt=""></a>
+                <a href="{{ route('frontend') }}"><img src="{{ asset('frontend/hapeku/') }}/img/core-img/hapeku.jpeg" alt=""></a>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
@@ -102,7 +102,7 @@
         <!-- Product Catagories Area End -->
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
-
+{{--
     <!-- ##### Newsletter Area Start ##### -->
     <section class="newsletter-area section-padding-100-0" style="position: relative; z-index: 999">
         <div class="container">
@@ -125,7 +125,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ##### Newsletter Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
@@ -137,7 +137,7 @@
                     <div class="single_widget_area">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="index.html"><img src="{{ asset('frontend/hapeku/') }}/img/core-img/logo2.png" alt=""></a>
+                            <a href="index.html"><img src="{{ asset('frontend/hapeku/') }}/img/core-img/hapeku.jpeg" alt=""></a>
                         </div>
                         <!-- Copywrite Text -->
                         <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -155,19 +155,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <div class="collapse navbar-collapse" id="footerNavContent">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Home</a>
+                                            <a class="nav-link" href="{{ route('frontend') }}">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="shop.html">Shop</a>
+                                            <a class="nav-link" href="{{ route('frontend') }}">CariHP</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="product-details.html">Product</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="cart.html">Cart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="checkout.html">Checkout</a>
+                                            <a class="nav-link" href="{{ route('frontend') }}">Compare</a>
                                         </li>
                                     </ul>
                                 </div>
