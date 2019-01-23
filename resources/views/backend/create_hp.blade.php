@@ -42,6 +42,9 @@
                                         <option value="Vivo">Vivo</option>
                                         <option value="OnePlus">OnePlus</option>
                                         <option value="Xiaomi">Xiaomi</option>
+                                        <option value="Sony">Sony</option>
+                                        <option value="Asus">Asus</option>
+
                                     </select>
                                 </div>
                             </div>

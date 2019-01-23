@@ -10,7 +10,7 @@ class AddMerkHp extends Migration
     public function up()
     {
         Schema::table('hp', function ($table) {
-            $table->enum('merk', ['Samsung', 'LG', 'Vivo', 'OnePlus', 'Xiaomi', 'Oppo']);
+            $table->enum('merk', ['Samsung', 'LG', 'Vivo', 'OnePlus', 'Xiaomi', 'Oppo', 'Sony', 'Asus']);
         });
     }
 
